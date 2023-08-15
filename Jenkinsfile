@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+				echo 'Checkout..'
                 // Checkout your code from the repository
                 checkout scm
             }
@@ -11,6 +12,7 @@ pipeline {
         
         stage('Build') {
             steps {
+				echo 'Building..'
                 // Build your Spring Boot application
                 sh 'mvn clean package'
             }
@@ -18,6 +20,7 @@ pipeline {
         
         stage('Docker Build') {
             steps {
+				echo 'Docker Build..'
                 // Build Docker image using the Dockerfile
                 sh 'docker build -t your-image-name .'
             }
@@ -25,6 +28,7 @@ pipeline {
         
         stage('Deploy to AKS') {
             steps {
+				echo 'Deploy to AKS..'
                 // Authenticate with AKS
                 sh 'az aks get-credentials --resource-group your-resource-group --name your-aks-cluster'
                 
