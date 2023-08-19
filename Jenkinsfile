@@ -14,7 +14,8 @@ pipeline {
             steps {
                 echo 'Building..'
                 // Build your Spring Boot application
-                sh 'mvn clean package'
+                //sh 'mvn clean package'
+				mvn clean package
             }
         }
 
@@ -22,7 +23,8 @@ pipeline {
             steps {
                 echo 'Docker Build..'
                 // Build Docker image using the Dockerfile
-                sh "docker build -t $IMAGE_NAME ."
+                //sh "docker build -t $IMAGE_NAME ."
+				docker build -t $IMAGE_NAME .
             }
         }
 
